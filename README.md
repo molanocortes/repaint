@@ -1,12 +1,15 @@
-<img src="docs/icon.png" width="96" align="left" hspace="12">
+<p align="center">
+  <img src="docs/icon.png" width="120" alt="repaint">
+</p>
 
-# repaint
+<h1 align="center">repaint</h1>
 
-A paint program for macOS, laid out like the old Windows Paint ribbon.
+<p align="center">
+  A paint program for macOS, laid out like the old Windows Paint ribbon.
+</p>
+
 Written in Swift with AppKit and Core Graphics. No dependencies, no Xcode
 project, no package manifest. One shell script builds it.
-
-<br clear="left">
 
 ![The Home tab](docs/screenshot-home.png)
 
