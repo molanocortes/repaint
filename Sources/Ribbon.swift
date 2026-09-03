@@ -112,7 +112,7 @@ final class RibbonView: NSView {
             x += 22
         }
 
-        let title = "\(state.fileURL?.deletingPathExtension().lastPathComponent ?? "Untitled") - Paint"
+        let title = "\(state.fileURL?.deletingPathExtension().lastPathComponent ?? "Untitled") - repaint"
         Chrome.label(title, in: NSRect(x: x + 12, y: 5, width: bounds.width - x - 24, height: 16),
                      size: 11, color: Chrome.ink, align: .left)
     }

@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>Paint</string>
+    <string>repaint</string>
     <key>CFBundleDisplayName</key>
-    <string>Paint</string>
+    <string>repaint</string>
     <key>CFBundleExecutable</key>
-    <string>Paint</string>
+    <string>repaint</string>
     <key>CFBundleIdentifier</key>
-    <string>com.sebastianmolano.paint</string>
+    <string>com.sebastianmolano.repaint</string>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
     <key>CFBundlePackageType</key>

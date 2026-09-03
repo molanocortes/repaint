@@ -31,10 +31,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // Application menu
         let appItem = NSMenuItem()
         let appMenu = NSMenu()
-        appMenu.addItem(withTitle: "About Paint",
+        appMenu.addItem(withTitle: "About repaint",
                         action: #selector(showAbout), keyEquivalent: "").target = self
         appMenu.addItem(.separator())
-        appMenu.addItem(withTitle: "Hide Paint",
+        appMenu.addItem(withTitle: "Hide repaint",
                         action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
         let hideOthers = appMenu.addItem(withTitle: "Hide Others",
                                          action: #selector(NSApplication.hideOtherApplications(_:)),
@@ -43,7 +43,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         appMenu.addItem(withTitle: "Show All",
                         action: #selector(NSApplication.unhideAllApplications(_:)), keyEquivalent: "")
         appMenu.addItem(.separator())
-        appMenu.addItem(withTitle: "Quit Paint",
+        appMenu.addItem(withTitle: "Quit repaint",
                         action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         appItem.submenu = appMenu
         main.addItem(appItem)
@@ -219,7 +219,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // Help
         let helpItem = NSMenuItem()
         let helpMenu = NSMenu(title: "Help")
-        helpMenu.addItem(withTitle: "Paint Help",
+        helpMenu.addItem(withTitle: "repaint Help",
                          action: #selector(showHelp), keyEquivalent: "?").target = self
         helpItem.submenu = helpMenu
         main.addItem(helpItem)
@@ -237,7 +237,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func showAbout() {
         let a = NSAlert()
-        a.messageText = "Paint"
+        a.messageText = "repaint"
         a.informativeText = """
         A rebuild of the ribbon-era Windows Paint for macOS.
 
@@ -250,7 +250,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func showHelp() {
         let a = NSAlert()
-        a.messageText = "Paint — Quick Help"
+        a.messageText = "repaint — Quick Help"
         a.informativeText = """
         Left-click draws with the foreground colour, right-click with the \
         background colour. That applies to the pencil, brush, shapes and the fill bucket.

@@ -23,7 +23,7 @@ cd repaint
 ```
 
 That compiles the sources, runs the tests, draws the icon, and copies
-`Paint.app` into `/Applications`. Needs the Xcode Command Line Tools; it does
+`repaint.app` into `/Applications`. Needs the Xcode Command Line Tools; it does
 not need Xcode itself.
 
 `./build.sh` on its own just builds into the project folder. Set `RUN_TESTS=0`

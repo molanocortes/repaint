@@ -1,13 +1,13 @@
 #!/bin/bash
-# Builds Paint.app from source and (optionally) installs it.
-#   ./build.sh            build into ./Paint.app
+# Builds repaint.app from source and (optionally) installs it.
+#   ./build.sh            build into ./repaint.app
 #   ./build.sh --install  build, then copy into /Applications
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-APP="$ROOT/Paint.app"
+APP="$ROOT/repaint.app"
 BUILD="$ROOT/build"
-BIN="$BUILD/Paint"
+BIN="$BUILD/repaint"
 
 # --- Preflight: a stale Command Line Tools file breaks every Swift build ----
 STALE="/Library/Developer/CommandLineTools/usr/include/swift/module.modulemap"
@@ -54,7 +54,7 @@ python3 "$ROOT/make_icon.py" >/dev/null
 echo "Assembling app bundle..."
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
-cp "$BIN" "$APP/Contents/MacOS/Paint"
+cp "$BIN" "$APP/Contents/MacOS/repaint"
 cp "$BUILD/AppIcon.icns" "$APP/Contents/Resources/AppIcon.icns"
 cp "$ROOT/Info.plist" "$APP/Contents/Info.plist"
 printf 'APPL????' > "$APP/Contents/PkgInfo"
@@ -66,10 +66,10 @@ codesign --force --deep --sign - "$APP" 2>/dev/null || \
 echo "Built: $APP"
 
 if [ "${1:-}" = "--install" ]; then
-  DEST="/Applications/Paint.app"
-  if [ ! -w /Applications ]; then DEST="$HOME/Applications/Paint.app"; mkdir -p "$HOME/Applications"; fi
-  # Clear out the app's former name so only one copy is installed.
-  rm -rf "$(dirname "$DEST")/ClassicPaint.app"
+  DEST="/Applications/repaint.app"
+  if [ ! -w /Applications ]; then DEST="$HOME/Applications/repaint.app"; mkdir -p "$HOME/Applications"; fi
+  # Clear out earlier names so only one copy is ever installed.
+  for old in ClassicPaint Paint; do rm -rf "$(dirname "$DEST")/$old.app"; done
   rm -rf "$DEST"
   cp -R "$APP" "$DEST"
   echo "Installed: $DEST"

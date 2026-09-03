@@ -15,7 +15,7 @@ final class PaintWindowController: NSWindowController, NSWindowDelegate, NSMenuI
         let win = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 1180, height: 760),
                            styleMask: [.titled, .closable, .miniaturizable, .resizable],
                            backing: .buffered, defer: false)
-        win.title = "Untitled - Paint"
+        win.title = "Untitled - repaint"
         win.minSize = NSSize(width: 900, height: 520)
         self.init(window: win)
         win.delegate = self
@@ -351,7 +351,7 @@ final class PaintWindowController: NSWindowController, NSWindowDelegate, NSMenuI
 
     private func updateTitle() {
         let name = state.fileURL?.deletingPathExtension().lastPathComponent ?? "Untitled"
-        window?.title = "\(name) - Paint"
+        window?.title = "\(name) - repaint"
         window?.isDocumentEdited = state.isDirty
         ribbon.needsDisplay = true
     }
@@ -387,7 +387,7 @@ final class PaintWindowController: NSWindowController, NSWindowDelegate, NSMenuI
 
     func loadImage(from url: URL) {
         guard let img = NSImage(contentsOf: url) else {
-            alert("Paint cannot read this file.", info: url.lastPathComponent)
+            alert("repaint cannot read this file.", info: url.lastPathComponent)
             return
         }
         var rect = CGRect(origin: .zero, size: img.size)
